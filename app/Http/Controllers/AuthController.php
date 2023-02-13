@@ -23,6 +23,8 @@ class AuthController extends Controller
 
         $user = Cliente::where("cliente_cpf_cnpj", $login)->where("cliente_ativo", 'sim')->first();
 
+        return $user;
+        
         if (!$user) {
             return response(["message" => "INVALID_CREDENTIALS"], 200);
         }
